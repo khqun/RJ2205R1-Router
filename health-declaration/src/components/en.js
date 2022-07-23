@@ -4,7 +4,7 @@ import { Formik } from 'formik';
 const DeclarationSchema = Yup.object().shape({
     name: Yup.string().required().matches(/^[A-Z\s]+$/),
     cmd: Yup.number(),
-    birth: Yup.number().required(),
+    birth:  Yup.string().required().matches(/^(19[0-9][0-9]|20[01][0-9]|2020|2021|2022)$/),
     gender: Yup.string().required(),
     national: Yup.string().required(),
     province: Yup.string().required(),
