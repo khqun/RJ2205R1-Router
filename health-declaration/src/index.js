@@ -3,12 +3,22 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import VietnameseVersion from './components/vn';
+import EnglishVersion from './components/en';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <BrowserRouter>
+  <div>
+    <h4>Chọn ngôn ngữ để khai báo y tế/Select the language to declare health</h4>
+  </div>
+    <Routes>
+      <Route path="/" element={<App />}>
+        <Route index path="/VietnameseVersion" element={<VietnameseVersion />} />
+        <Route path="/EnglishVersion" element={<EnglishVersion />} /> 
+      </Route>
+    </Routes>
+  </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function
