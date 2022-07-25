@@ -46,17 +46,15 @@ function App() {
         >
           {
             ({ errors,
+              touched,
               handleSubmit }
             ) => (
               <div>
 
                 <Form onSubmit={handleSubmit}>
-                  <InputForm handleChange={handleOnChange} label={"Name"} name="name" />
-                  <p>{errors.name}</p>
-                  <InputForm handleChange={handleOnChange} label={"Email"} name="email" />
-                  <p>{errors.email}</p>
-                  <InputForm handleChange={handleOnChange} label={"Phone"} name="phone" />
-                  <p>{errors.phone}</p>
+                  <InputForm handleChange={handleOnChange} label={"Name"} name="name" classname={`input ${!errors.name ? '' : 'error'}`} errors={errors.name} />
+                  <InputForm handleChange={handleOnChange} label={"Email"} name="email" classname={`input ${!errors.name ? '' : 'error'}`} errors={errors.email} />
+                  <InputForm handleChange={handleOnChange} label={"Phone"} name="phone" classname={`input ${!errors.name ? '' : 'error'}`} errors={errors.phone} />
                   <button type="submit" onClick={handleSubmit}>Submit</button>
                 </Form>
               </div>

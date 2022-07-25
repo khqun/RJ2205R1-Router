@@ -3,12 +3,13 @@ function InputForm({ values,
     name,
     handleChange,
     type,
-    label
+    label,
+    classname
 }) {
     return (
         <div>
             <p>{label}</p>
-            <input onChange={handleChange} type={type || 'text'} name={name} value={values} />
+            <input onChange={handleChange} type={type || 'text'} name={name} value={values} className={classname} />
             <p className="error_message">{errors}</p>
         </div>
     )
