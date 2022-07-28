@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Formik } from 'formik';
-import DisplayErrors from "./errors";
+import { useNavigate } from 'react-router-dom';
 function Login() {
+    const navigate = useNavigate()
     const [account, setAccount] = useState({})
     const handleOnChange = (e) => {
         setAccount({
@@ -18,13 +19,19 @@ function Login() {
 
         if (!account.password) {
             errors.password = 'required'
-        } else if (!account.username === 'letmein') {
+        } else if (account.password !== 'letmein') {
             errors.password = 'wrong password'
         }
         return errors
     }
     const handleSubmit = () => {
-        alert('success')
+        alert('success');
+        navigate(`/home`, {
+            state: {
+                username: account.username,
+                password: account.password
+            }   
+        })
     }
     return (
         <div>
